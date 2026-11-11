@@ -1,0 +1,18 @@
+/costmap/costmap:
+  ros__parameters:
+    global_frame: map
+    robot_base_frame: costmap_demo_base
+    robot_radius: 0.10
+    update_frequency: 1.0
+    publish_frequency: 1.0
+    rolling_window: false
+    track_unknown_space: true
+    always_send_full_costmap: true
+    plugins: [static_layer, inflation_layer]
+    static_layer:
+      plugin: "nav2_costmap_2d::StaticLayer"
+      map_subscribe_transient_local: true
+    inflation_layer:
+      plugin: "nav2_costmap_2d::InflationLayer"
+      inflation_radius: 0.50
+      cost_scaling_factor: 3.0
